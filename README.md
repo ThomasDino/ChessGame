@@ -11,13 +11,18 @@
 
 <h2>Key Features</h2>
 - Chess Logic: Implements the standard rules and logic of chess gameplay.
+<br/>
 - Move Validation: Ensures that player moves are valid according to the rules of chess.
+<br/>
 - Check and Checkmate: Detects and handles check and checkmate conditions during the game.
+<br/>
 - Two-Player Mode: Allows two players to take turns making moves on the same board.
+<br/>
 - **Console Interface: Utilizes a console interface for user interaction.
 
 <h2>Technologies Used</h2>
 - Java
+<br/>
 - Object-Oriented Programming
 
 <h2>Installation</h2>
