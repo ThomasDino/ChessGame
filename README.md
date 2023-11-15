@@ -1,41 +1,39 @@
-<div align="center"><img src="path/to/your/logo.png"></div>
-<h1 align="center">Your Project Name</h1>
+<div align="center"><img src="path/to/your/chess_game_logo.png"></div>
+<h1 align="center">Chess Game</h1>
 <p align="center"><strong>Description</strong>
-<br>Short project description or overview.</p>
+<br>A console-based chess game implementation in Java with features like move validation, check, and checkmate conditions.</p>
 <br/>
-<div align="center"><img src="path/to/your/demo.gif"></img></div>
 <h2>About</h2>
-Detailed explanation of what the project is about and its objectives.
+- Implements the basic rules and movements of chess.
+- Supports two-player mode, allowing players to take turns making moves.
+- Validates moves based on individual piece rules and the overall game state.
+- Detects check and checkmate conditions during gameplay.
 
 <h2>Key Features</h2>
-- Feature 1
-- Feature 2
-- ...
+- **Chess Logic:** Implements the standard rules and logic of chess gameplay.
+- **Move Validation:** Ensures that player moves are valid according to the rules of chess.
+- **Check and Checkmate:** Detects and handles check and checkmate conditions during the game.
+- **Two-Player Mode:** Allows two players to take turns making moves on the same board.
+- **Console Interface:** Utilizes a console interface for user interaction.
 
 <h2>Technologies Used</h2>
-- Technology 1
-- Technology 2
-- ...
+- Java
+- Object-Oriented Programming
+- Inheritence
+- Encapsulation
 
 <h2>Installation</h2>
 
-1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
-2. Navigate to the project directory: `cd your-repo`
-3. Additional steps, if any...
+1. Clone the repository: `git clone https://github.com/your-username/chess-game.git`
+2. Navigate to the project directory: `cd chess-game`
+3. Compile and run the Java program.
 
 <h2>Usage</h2>
-
-Explain how to use or run the project. Include examples if necessary.
-
-<h2>Contributing</h2>
-Provide information on how others can contribute to your project, if applicable.
-
-<h2>License</h2>
-Mention the license under which your project is distributed.
+- Enter moves in the format 'e2 e4' when prompted.
+- Follow the console instructions to play the game.
 
 <h2>Credits</h2>
 
-- Author: Your Name
-- Co-Author: Collaborator's Name (if any)
+- Author: Thomas Dinopoulos
 
 </p>
