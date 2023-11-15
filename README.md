@@ -5,8 +5,11 @@
 <br/>
 <h2>About</h2>
 - Implements the basic rules and movements of chess.
+<br/>
 - Supports two-player mode, allowing players to take turns making moves.
+<br/>
 - Validates moves based on individual piece rules and the overall game state.
+<br/>
 - Detects check and checkmate conditions during gameplay.
 
 <h2>Key Features</h2>
@@ -33,16 +36,15 @@
 
 <h2>Usage</h2>
 - Enter moves in the format 'e2 e4' when prompted.
+<br/>
 - Follow the console instructions to play the game.
 
 <h2>Contributing</h2>
 - Contributions are welcome! Fork the repository and submit a pull request.
 
-<h2>License</h2>
-- This project is licensed under [Your License].
 
 <h2>Credits</h2>
 
-- Author: Your Name
+- Author: Thomas Dinopoulos
 
 </p>
