@@ -21,7 +21,7 @@
 <br/>
 - Two-Player Mode: Allows two players to take turns making moves on the same board.
 <br/>
-- **Console Interface: Utilizes a console interface for user interaction.
+- Console Interface: Utilizes a console interface for user interaction.
 
 <h2>Technologies Used</h2>
 - Java
@@ -38,10 +38,6 @@
 - Enter moves in the format 'e2 e4' when prompted.
 <br/>
 - Follow the console instructions to play the game.
-
-<h2>Contributing</h2>
-- Contributions are welcome! Fork the repository and submit a pull request.
-
 
 <h2>Credits</h2>
 
