@@ -19,8 +19,6 @@
 <h2>Technologies Used</h2>
 - Java
 - Object-Oriented Programming
-- Inheritence
-- Encapsulation
 
 <h2>Installation</h2>
 
@@ -32,8 +30,14 @@
 - Enter moves in the format 'e2 e4' when prompted.
 - Follow the console instructions to play the game.
 
+<h2>Contributing</h2>
+- Contributions are welcome! Fork the repository and submit a pull request.
+
+<h2>License</h2>
+- This project is licensed under [Your License].
+
 <h2>Credits</h2>
 
-- Author: Thomas Dinopoulos
+- Author: Your Name
 
 </p>
