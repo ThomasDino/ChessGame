@@ -9,7 +9,7 @@ public class Queen extends Piece {
     }
 
     @Override
-    public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol) {
+    public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol, Piece piece) {
         int rowDistance = Math.abs(toRow - fromRow);
         int colDistance = Math.abs(toCol - fromCol);
 
@@ -17,13 +17,13 @@ public class Queen extends Piece {
     }
 
     @Override
-    public List<int[]> getValidMoves(int currentRow, int currentCol) {
+    public List<int[]> getValidMoves(int currentRow, int currentCol, Piece piece) {
         List<int[]> validMoves = new ArrayList<>();
 
         // Generate valid moves for a queen
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
-                if (isValidMove(currentRow, currentCol, row, col)) {
+                if (isValidMove(currentRow, currentCol, row, col, piece)) {
                     validMoves.add(new int[]{row, col});
                 }
             }
@@ -33,8 +33,8 @@ public class Queen extends Piece {
     }
 
     @Override
-    public boolean isAttacking(int fromRow, int fromCol, int toRow, int toCol) {
-        return isValidMove(fromRow, fromCol, toRow, toCol);
+    public boolean isAttacking(int fromRow, int fromCol, int toRow, int toCol, Piece piece) {
+        return isValidMove(fromRow, fromCol, toRow, toCol, piece);
     }
 }
 

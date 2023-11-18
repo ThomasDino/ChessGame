@@ -9,14 +9,14 @@ public class King extends Piece {
     }
 
     @Override
-    public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol) {
+    public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol, Piece piece) {
         int rowDistance = Math.abs(toRow - fromRow);
         int colDistance = Math.abs(toCol - fromCol);
         return (rowDistance <= 1 && colDistance <= 1);
     }
 
     @Override
-    public List<int[]> getValidMoves(int currentRow, int currentCol) {
+    public List<int[]> getValidMoves(int currentRow, int currentCol, Piece piece) {
         List<int[]> validMoves = new ArrayList<>();
 
         // Generate valid moves for a king
@@ -34,7 +34,7 @@ public class King extends Piece {
         for (int[] move : possibleMoves) {
             int row = move[0];
             int col = move[1];
-            if (isValidMove(currentRow, currentCol, row, col) && isValidPosition(row, col)) {
+            if (isValidMove(currentRow, currentCol, row, col, piece) && isValidPosition(row, col)) {
                 validMoves.add(new int[]{row, col});
             }
         }
@@ -43,8 +43,8 @@ public class King extends Piece {
     }
 
     @Override
-    public boolean isAttacking(int fromRow, int fromCol, int toRow, int toCol) {
-        return isValidMove(fromRow, fromCol, toRow, toCol);
+    public boolean isAttacking(int fromRow, int fromCol, int toRow, int toCol, Piece piece) {
+        return isValidMove(fromRow, fromCol, toRow, toCol, piece);
     }
 
     // Helper method to check if a position is within the 8x8 board

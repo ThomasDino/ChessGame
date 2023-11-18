@@ -9,12 +9,12 @@ public class Rook extends Piece {
     }
 
     @Override
-    public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol) {
+    public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol, Piece piece) {
         return fromRow == toRow || fromCol == toCol;
     }
 
     @Override
-    public List<int[]> getValidMoves(int currentRow, int currentCol) {
+    public List<int[]> getValidMoves(int currentRow, int currentCol, Piece piece) {
         List<int[]> validMoves = new ArrayList<>();
 
         // Generate valid moves for a rook
@@ -34,8 +34,8 @@ public class Rook extends Piece {
     }
 
     @Override
-    public boolean isAttacking(int fromRow, int fromCol, int toRow, int toCol) {
-        return isValidMove(fromRow, fromCol, toRow, toCol);
+    public boolean isAttacking(int fromRow, int fromCol, int toRow, int toCol, Piece piece) {
+        return isValidMove(fromRow, fromCol, toRow, toCol, piece);
     }
     
     

@@ -26,13 +26,15 @@ public class Piece {
     }
     
  // Common method to check if a move is valid for a piece
-    public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol, Piece activePiece, ChessBoard chessBoard) {
+    public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol, Piece activePiece) {
         // Default implementation in the base class (can be overridden in specific piece classes)
         return true;
     }
 
     // Common method to get valid moves for a piece
-    public List<int[]> getValidMoves(int fromRow, int fromCol) {
+    public List<int[]> getValidMoves(int fromRow, int fromCol, Piece piece) {
+    	
+    	
         // Default implementation in the base class (can be overridden in specific piece classes)
         return null;
     }
@@ -52,5 +54,6 @@ public class Piece {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 
 }

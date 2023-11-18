@@ -36,7 +36,7 @@ public class Pawn extends Piece {
 	//    }
 
 	@Override
-	public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol, Piece activePiece, ChessBoard chessboard) {
+	public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol, Piece activePiece) {
 		if (getColor() == Color.WHITE && toRow - fromRow <= 2 && fromCol == toCol && fromRow == 1) {			
 			return true;
 		}
@@ -62,26 +62,26 @@ public class Pawn extends Piece {
 
 
 	@Override
-	public List<int[]> getValidMoves(int fromRow, int fromCol) {
+	public List<int[]> getValidMoves(int fromRow, int fromCol, Piece piece) {
 		List<int[]> validMoves = new ArrayList<>();
 		int forwardDirection = (getColor() == Color.WHITE) ? -1 : 1;
 
-		if (isValidMove(fromRow, fromCol, fromRow + forwardDirection, fromCol)) {
+		if (isValidMove(fromRow, fromCol, fromRow + forwardDirection, fromCol, piece)) {
 			validMoves.add(new int[] {fromRow + forwardDirection, fromCol});
 
 			if ((fromRow == 1 && getColor() == Color.WHITE) || (fromRow == 6 && getColor() == Color.BLACK)) {
-				if (isValidMove(fromRow, fromCol, fromRow + 2 * forwardDirection, fromCol)) {
+				if (isValidMove(fromRow, fromCol, fromRow + 2 * forwardDirection, fromCol, piece)) {
 					validMoves.add(new int[] {fromRow + 2 * forwardDirection, fromCol});
 				}
 			}
 		}
 
 		// Pawn captures
-		if (isValidMove(fromRow, fromCol, fromRow + forwardDirection, fromCol - 1)) {
+		if (isValidMove(fromRow, fromCol, fromRow + forwardDirection, fromCol - 1, piece)) {
 			validMoves.add(new int[] {fromRow + forwardDirection, fromCol - 1});
 		}
 
-		if (isValidMove(fromRow, fromCol, fromRow + forwardDirection, fromCol + 1)) {
+		if (isValidMove(fromRow, fromCol, fromRow + forwardDirection, fromCol + 1, piece)) {
 			validMoves.add(new int[] {fromRow + forwardDirection, fromCol + 1});
 		}
 
@@ -90,32 +90,17 @@ public class Pawn extends Piece {
 
 	@Override
 	public boolean isAttacking(int fromRow, int fromCol, int toRow, int toCol) {
-	    if () {
-	    	
-	    }
-	}
+	    int forwardDirection = (this.getColor() == Color.WHITE) ? -1 : 1;
 
-//	    // Check if there is a piece at the target position
-//	    if (pieceAtPosition != null) {
-//	        // Check if the attacking piece is a white pawn and the target piece is black
-//	        if (activePiece.getColor() == Piece.Color.WHITE && pieceAtPosition.getColor() == Piece.Color.BLACK) {
-//	            // Check if the move is diagonal
-//	            if (Math.abs(toCol - fromCol) == 1 && (toRow - fromRow) == 1) {
-//	                return true;
-//	            }
-//	        }
-//	        // Check if the attacking piece is a black pawn and the target piece is white
-//	        else if (activePiece.getColor() == Piece.Color.BLACK && pieceAtPosition.getColor() == Piece.Color.WHITE) {
-//	            // Check if the move is diagonal
-//	            if (Math.abs(toCol - fromCol) == 1 && (fromRow - toRow) == 1) {
-//	                return true;
-//	            }
-//	        }
-//	    }
-//
-//	    // If none of the conditions are met, return false
-//	    return false;
-//	}
+	    // Check if the move is diagonal and one square forward
+	    if (Math.abs(toCol - fromCol) == 1 && (toRow - fromRow) == forwardDirection) {
+	        // Check if there's a piece of the opposing color in the target position
+	        Piece targetPiece = ChessBoard.getPiece(toRow, toCol);
+	        return targetPiece != null && targetPiece.getColor() != this.getColor();
+	    }
+
+	    return false;
+	}
 
 		
 		

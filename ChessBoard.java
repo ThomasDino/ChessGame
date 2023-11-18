@@ -3,7 +3,7 @@ package GameProject;
 import GameProject.Piece.Color;
 
 public class ChessBoard {
-	private Piece[][] board;
+	private static Piece[][] board;
 
 	public ChessBoard() {
 		board = new Piece[8][8];
@@ -45,7 +45,7 @@ public class ChessBoard {
 		board[7][4] = new King(Color.BLACK);
 	}
 
-	public Piece getPiece(int row, int col) {
+	public static Piece getPiece(int row, int col) {
 		return board[row][col];
 	}
 
@@ -60,10 +60,10 @@ public class ChessBoard {
 	}
 	
 
-	public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol, ChessBoard chessboard, Color currentPlayer) {
-		Piece activePiece = chessboard.getPiece(fromRow, fromCol);
+	public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol, Piece activePiece, Color currentPlayer) {
+
 		if (activePiece != null && activePiece.getColor() == currentPlayer) {
-			if (activePiece.isValidMove(fromRow, fromCol, toRow, toCol)) {
+			if (activePiece.isValidMove(fromRow, fromCol, toRow, toCol, activePiece)) {
 				// Check if the path is clear, castling rules, en passant, etc.
 				if (isPathClear(fromRow, fromCol, toRow, toCol)) {
 					return true;
@@ -164,7 +164,7 @@ public class ChessBoard {
 		for (int row = kingRow - 1; row <= kingRow + 1; row++) {
 			for (int col = kingCol - 1; col <= kingCol + 1; col++) {
 				if (row >= 0 && row < 8 && col >= 0 && col < 8) {
-					if (isValidMove(kingRow, kingCol, row, col, chessboard, currentPlayer)) {
+					if (isValidMove(kingRow, kingCol, row, col, getPiece(kingCol, kingCol), currentPlayer)) {
 						// The king can move to this square, so it's not in check
 						return true;
 					}
@@ -215,7 +215,7 @@ public class ChessBoard {
 	        for (int col = 0; col < 8; col++) {
 	            Piece piece = getPiece(row, col);
 	            if (piece != null && piece.getColor() == currentPlayer) {
-	                if (piece.isValidMove(row, col, kingRow, kingCol)) {
+	                if (piece.isValidMove(row, col, kingRow, kingCol, piece)) {
 	                    if (isPathClear(row, col, kingRow, kingCol)) {
 	                        // A player's piece can block the check
 	                        return true;

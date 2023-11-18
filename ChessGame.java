@@ -16,14 +16,14 @@ public class ChessGame {
 	//
 
 	// ...
-	public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol, Color currentPlayer, ChessBoard chessboard) {
+	public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol, Color currentPlayer) {
 		Piece activePiece = chessboard.getPiece(fromRow, fromCol);
 		System.out.println("Color of piece is: " + activePiece.getColor());
 		
 		System.out.println("Piece is " + activePiece); 
 		if (activePiece != null && activePiece.getColor() == currentPlayer) {
 			System.out.println("Check isValidMove1");
-			if (activePiece.isValidMove(fromRow, fromCol, toRow, toCol, chessboard)) {
+			if (activePiece.isValidMove(fromRow, fromCol, toRow, toCol, activePiece)) {
 				System.out.println("Check isValidMove2");
 				// Check if the path is clear, castling rules, en passant, etc.
 				if (isPathClear(fromRow, fromCol, toRow, toCol)) {
@@ -166,7 +166,7 @@ public class ChessGame {
 				for (int col = 0; col < 8; col++) {
 					Piece piece = chessboard.getPiece(row, col);
 					if (piece != null && piece.getColor() == currentPlayer) {
-						if (piece.isValidMove(row, col, kingRow, kingCol)) {
+						if (piece.isValidMove(row, col, kingRow, kingCol, piece)) {
 							if (isPathClear(row, col, kingRow, kingCol)) {
 								// A player's piece can block the check
 								return true;
@@ -214,13 +214,13 @@ public class ChessGame {
 
 
 
-		if (!piece.isValidMove(fromRow, fromCol, toRow, toCol)) {
+		if (!piece.isValidMove(fromRow, fromCol, toRow, toCol, piece)) {
 			// Check if the move is valid for the piece
 			System.out.println("Check movePiece2");
 			System.out.println("Invalid move. Try again.");
 		}
 
-		if (!chessboard.isValidMove(fromRow, fromCol, toRow, toCol, chessboard, currentPlayer)) {
+		if (!chessboard.isValidMove(fromRow, fromCol, toRow, toCol, piece, currentPlayer)) {
 
 			// Check if the move is legal (e.g., not putting the king in check)
 			System.out.println("Check movePiece3");
@@ -357,7 +357,6 @@ public class ChessGame {
 
 			System.out.println(toCol);
 			System.out.println(toRow);
-
 
 			// Check if the move is valid and make the move
 			if (chessGame.isValidMove(fromRow, fromCol, toRow, toCol, chessGame.getCurrentPlayer())) {
